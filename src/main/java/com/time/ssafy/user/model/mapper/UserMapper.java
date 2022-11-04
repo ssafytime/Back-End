@@ -10,4 +10,5 @@ import com.time.ssafy.user.model.dto.UserDto;
 @Mapper
 public interface UserMapper {
 	UserDto login(Map<String, String> map) throws SQLException;
+	void join(UserDto userDto) throws SQLException;
 }
