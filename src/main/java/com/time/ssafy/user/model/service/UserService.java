@@ -7,4 +7,5 @@ import com.time.ssafy.user.model.dto.UserDto;
 
 public interface UserService {
 	UserDto login(Map<String, String> map) throws Exception;
+	void join(UserDto userDto) throws SQLException;
 }
