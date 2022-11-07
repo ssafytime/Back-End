@@ -27,4 +27,9 @@ public class UserServiceImpl implements UserService{
 	public void join(UserDto userDto) throws SQLException {
 		userMapper.join(userDto);
 	}
+
+	@Override
+	public void delete(String userId) throws Exception {
+		userMapper.delete(userId);
+	}
 }
