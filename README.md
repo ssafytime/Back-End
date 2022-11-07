@@ -35,5 +35,5 @@ Feat: "회원 가입 기능 구현"
 SMS, 이메일 중복확인 API 개발
 
 **Commit 명명 규칙 엄수!**
-**Git Branch 사용법!**
+**Git Branch 사용법!**  
 *https://aerial-utahraptor-6c4.notion.site/git-branch-63b600935aa143edbc0e1d11f5cc09e4*
