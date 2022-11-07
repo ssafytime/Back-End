@@ -11,4 +11,5 @@ import com.time.ssafy.user.model.dto.UserDto;
 public interface UserMapper {
 	UserDto login(Map<String, String> map) throws SQLException;
 	void join(UserDto userDto) throws SQLException;
+	void delete(String userId) throws SQLException;
 }

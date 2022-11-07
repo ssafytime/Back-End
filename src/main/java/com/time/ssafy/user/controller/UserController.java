@@ -13,7 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -82,6 +84,23 @@ public class UserController {
 			e.printStackTrace();		
 			return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+	
+	@DeleteMapping("/{userId}")
+	private ResponseEntity<?> delete(@PathVariable String userId){
+		Map<String , String> check = new HashMap<String, String>();
+		
+		try {
+			userService.delete(userId);
+			check.put("msg", "회원탈퇴 되었습니다.");
+			return new ResponseEntity<Map<String , String>>(check, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			check.put("msg", "회원탈퇴에 실패하였습니다.");
+			return new ResponseEntity<Map<String , String>>(check, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
 	}
 	
 }

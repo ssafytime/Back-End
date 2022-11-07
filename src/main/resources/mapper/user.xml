@@ -20,4 +20,10 @@
 		user_tb
 		value(#{userId}, #{userPwd}, #{nickName})
 	</insert>
+	<delete id="delete" parameterType="string">
+		delete 
+		from user_tb
+		where user_id = #{userId}
+	</delete>
+	
 </mapper>
