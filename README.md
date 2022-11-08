@@ -4,7 +4,7 @@
 ## 🖊 커밋 규칙
 1. Commit 메시지 구조
 
- type : subject
+ type : subject  
  body 
 
 2. Commit Type
