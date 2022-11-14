@@ -1,5 +1,7 @@
 package com.time.ssafy.board.model.dto;
 
+import java.util.List;
+
 public class BoardDto {
 	private int articleNo;
 	private String userId;
@@ -7,7 +9,14 @@ public class BoardDto {
 	private String subject;
 	private String content;
 	private String registerTime;
+	private List<FileDto> fileDtos;
 	
+	public List<FileDto> getFileDtos() {
+		return fileDtos;
+	}
+	public void setFileDtos(List<FileDto> fileDtos) {
+		this.fileDtos = fileDtos;
+	}
 	public int getArticleNo() {
 		return articleNo;
 	}
@@ -48,7 +57,7 @@ public class BoardDto {
 	@Override
 	public String toString() {
 		return "BoardDto [articleNo=" + articleNo + ", userId=" + userId + ", roomNo=" + roomNo + ", subject=" + subject
-				+ ", content=" + content + ", registerTime=" + registerTime + "]";
+				+ ", content=" + content + ", registerTime=" + registerTime + ", fileDtos=" + fileDtos + "]";
 	}
 	
 }
