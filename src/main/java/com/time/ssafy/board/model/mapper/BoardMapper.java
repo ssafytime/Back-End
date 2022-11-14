@@ -11,13 +11,19 @@ import com.time.ssafy.board.model.dto.BoardRoomDto;
 
 @Mapper
 public interface BoardMapper {
-
-	List<BoardDto> boardList(int roomNo) throws SQLException;
-	List<BoardRoomDto> boardRoomList() throws SQLException;
-	void addBoard(BoardDto boardDto) throws SQLException;
+	// room
+	List<BoardRoomDto> boardRoomList(Map<String, Integer> map) throws SQLException;
+	List<BoardRoomDto> roomFindList(Map<String, Object> map) throws SQLException;	
+	void modifyRoom(BoardRoomDto boardRoomDto) throws SQLException;
+	void deleteRoom(int roomNo) throws SQLException;
 	void addRoom(BoardRoomDto boardRoomDto) throws SQLException;
-	void modifyBoard(BoardDto boardDto) throws SQLException;
-	void deleteBoard(int boardNo) throws SQLException;
-	BoardDto boardView(Map<String, Integer> map) throws SQLException;
 	
+	// board
+	List<BoardDto> boardFindList(Map<String, Object> map) throws SQLException;
+	List<BoardDto> boardList(Map<String, Object> map) throws SQLException;
+	void addBoard(BoardDto boardDto) throws SQLException;
+	void modifyBoard(BoardDto boardDto) throws SQLException;
+	void deleteBoard(int articleNo) throws SQLException;
+	BoardDto boardView(Map<String, Integer> map) throws SQLException;
+	void registerFile(BoardDto boardDto) throws Exception;
 }
