@@ -1,5 +1,6 @@
 package com.time.ssafy.user.model.service;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,9 @@ public class UserServiceImpl implements UserService{
 	public UserDto login(Map<String, String> map) throws Exception {
 		return userMapper.login(map);
 	}
-	
-	
-	
+
+	@Override
+	public void join(UserDto userDto) throws SQLException {
+		userMapper.join(userDto);
+	}
 }

@@ -15,4 +15,15 @@
 		where user_id = #{userId} and user_pwd = #{userPwd}
 	</select>
 	
+	<insert id="join" parameterType="userDto">
+		insert into
+		user_tb
+		value(#{userId}, #{userPwd}, #{nickName})
+	</insert>
+	<delete id="delete" parameterType="string">
+		delete 
+		from user_tb
+		where user_id = #{userId}
+	</delete>
+	
 </mapper>

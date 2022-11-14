@@ -29,7 +29,7 @@ import com.time.ssafy.user.model.service.UserServiceImpl;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 	
 	UserServiceImpl userService;
@@ -42,12 +42,29 @@ public class UserController {
 	}
 
 	@PostMapping()
+	private ResponseEntity<?> join(@RequestBody UserDto userDto){
+		Map<String , String> check = new HashMap<String, String>();
+		System.out.println(userDto);
+		try {
+			check.put("msg", "회원가입에 성공하였습니다.");
+			userService.join(userDto);
+			
+			return new ResponseEntity<Map<String , String>>(check, HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();		
+			return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@PostMapping("/login")
 	private ResponseEntity<?> login(@RequestBody Map<String, String> map, HttpServletResponse response){
+		Map<String , String> check = new HashMap<String, String>();
+		
 		try {
 			UserDto userDto = userService.login(map);
-			Map<String , String> check = new HashMap<String, String>();
 			if(userDto != null) {
 				check.put("msg", "로그인에 성공하였습니다.");
+				check.put("niclname", userDto.getNickName());
 				
 				String key = jwtProvide.createToken(userDto.getUserId(), userDto.getNickName());
 				
@@ -67,16 +84,4 @@ public class UserController {
 		}
 	}
 	
-	private class ApiResponse{
-		private String data;
-
-		public String getData() {
-			return data;
-		}
-
-		public void setData(String data) {
-			this.data = data;
-		}
-		
-	}
 }
