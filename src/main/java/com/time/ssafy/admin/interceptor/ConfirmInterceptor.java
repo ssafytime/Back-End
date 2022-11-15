@@ -29,10 +29,11 @@ public class ConfirmInterceptor implements HandlerInterceptor {
 		String key = null;
 		for(Cookie cookie : cookies) {
 			if(cookie.getName().equals("key")) {
+				System.out.println(cookie.getValue());
 				key = cookie.getValue(); 
 			}
 		}
-		
+		System.out.println(jwtProvide.validateToken(key));
 		return jwtProvide.validateToken(key);
 	}
 	
