@@ -64,7 +64,7 @@ public class UserController {
 			UserDto userDto = userService.login(map);
 			if(userDto != null) {
 				check.put("msg", "로그인 완료!");
-				check.put("niclname", userDto.getNickName());
+				check.put("nickname", userDto.getNickName());
 				
 				String key = jwtProvide.createToken(userDto.getUserId(), userDto.getNickName());
 				
