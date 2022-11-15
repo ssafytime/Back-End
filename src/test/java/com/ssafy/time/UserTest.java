@@ -74,8 +74,8 @@ public class UserTest extends UnitTestConfig {
 	// 통합테스트
 	public void 로그인() {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("userId", "ssafy");
-		map.put("userPwd", "1234");		
+		map.put("userId", "1");
+		map.put("userPwd", "1");		
 		
 		UserDto userDto = null;
 		

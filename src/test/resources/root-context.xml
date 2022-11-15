@@ -20,7 +20,7 @@
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/mydb?serverTimezone=UTC&amp;useUniCode=yes&amp;characterEncoding=UTF-8"/>
 		<property name="username" value="ssafy"/>
-		<property name="password" value="1234"/>
+		<property name="password" value="ssafy"/>
 	</bean> 
 	
 <!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
