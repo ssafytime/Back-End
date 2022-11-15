@@ -65,7 +65,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardDto> boardFindList(Map<String, Object> map) throws Exception {
-		int pgNo = (Integer)map.get("pgno");
+		int pgNo = Integer.parseInt((String)map.get("pgno"));
 		int start = pgNo * SizeConstant.LIST_SIZE - SizeConstant.LIST_SIZE;
 		map.put("start", start);
 		map.put("listsize", SizeConstant.LIST_SIZE);
