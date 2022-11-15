@@ -46,7 +46,7 @@ public class UserController {
 		Map<String , String> check = new HashMap<String, String>();
 		System.out.println(userDto);
 		try {
-			check.put("msg", "È¸¿ø°¡ÀÔ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
+			check.put("msg", "íšŒì›ê°€ì… ì™„ë£Œ!");
 			userService.join(userDto);
 			
 			return new ResponseEntity<Map<String , String>>(check, HttpStatus.OK);
@@ -63,19 +63,19 @@ public class UserController {
 		try {
 			UserDto userDto = userService.login(map);
 			if(userDto != null) {
-				check.put("msg", "·Î±×ÀÎ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
+				check.put("msg", "ë¡œê·¸ì¸ ì™„ë£Œ!");
 				check.put("niclname", userDto.getNickName());
 				
 				String key = jwtProvide.createToken(userDto.getUserId(), userDto.getNickName());
 				
 				Cookie cookie = new Cookie("key", key);
-				cookie.setMaxAge(60*60*24); //ÄíÅ° À¯È¿ ±â°£: ÇÏ·ç·Î ¼³Á¤(60ÃÊ * 60ºĞ * 24½Ã°£)
-			    cookie.setPath("/"); //¸ğµç °æ·Î¿¡¼­ Á¢±Ù °¡´ÉÇÏµµ·Ï ¼³Á¤
+				cookie.setMaxAge(60*60*24);
+			    cookie.setPath("/");
 			    response.addCookie(cookie);
 				
 		        return new ResponseEntity<Map<String , String>>(check, HttpStatus.OK);
 			} else {
-				check.put("msg", "·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+				check.put("msg", "ë¡œê·¸ì¸ ì‹¤íŒ¨!");
 				return new ResponseEntity<Map<String , String>>(check, HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
